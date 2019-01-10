@@ -29,37 +29,33 @@ public class Prompt {
     public void runPrompt(){
         Scanner scanner = new Scanner(System.in);
         Calendar cal = new Calendar();
+
         int month = 1;
         int year = 2019;
-        int weekday = 0;
 
 
         while (true){
-            System.out.println("\n\n년도를 입력해주세요.");
+            System.out.println("\n\n년도를 입력해주세요.(exit: -1)");
             System.out.print("YEAR>");
             year = scanner.nextInt();
+            if(year == -1)
+                break;
             System.out.println("달을 입력해주세요.");
             System.out.print("MONTH>");
             month = scanner.nextInt();
-            System.out.println("첫째 날의 요일을 입력하세요.(su, mo, tu, wd, th, fr, sa)");
 
-            String str_weekday = scanner.next();
-            weekday = parseDay(str_weekday);
 
-            if (month == -1){
-                break;
-            }else if(month < 1 || month > 12){
+            if(month < 1 || month > 12){
                 System.out.println("1 ~ 12월을 선택해주세요.");
                 continue;
             }
-            cal.printCalendar(year, month, weekday);
         }
 
         //cal.printSampleCalendar();
-        scanner.close();
+        //scanner.close();
     }
-    public static void main(String[] args) {
-        Prompt p = new Prompt();
-        p.runPrompt();
+//    public static void main(String[] args) {
+//    Prompt p = new Prompt();
+//    p.runPrompt();
     }
-}
+
