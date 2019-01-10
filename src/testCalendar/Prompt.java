@@ -1,3 +1,5 @@
+package testCalendar;
+
 import java.util.Scanner;
 
 public class Prompt {
